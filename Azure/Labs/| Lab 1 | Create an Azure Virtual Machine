@@ -1,1 +1,86 @@
+##Lab 1: Create an Azure Virtual Machine
 
+<a id="lab1"></a>
+
+**Duration:** 30 minutes  
+**Difficulty:** Beginner  
+**Skills Covered:** VMs, Resource Groups, Regions, Compute
+
+### Objectives
+
+- Create a resource group
+- Deploy a Windows VM
+- Connect to the VM using RDP
+- Verify the VM is running
+
+### Prerequisites
+
+- Azure subscription
+- RDP client (Windows: built-in, Mac: Microsoft Remote Desktop app)
+
+### Step 1: Create a Resource Group
+
+1. Go to [Azure Portal](https://portal.azure.com)
+2. Search for "Resource groups" in the search bar
+3. Click **+ Create**
+4. Fill in the details:
+   - **Subscription:** Select your subscription
+   - **Resource group name:** `rg-az900-lab`
+   - **Region:** East US (or your preferred region)
+5. Click **Review + create** → **Create**
+6. Wait for the deployment to complete
+
+### Step 2: Create a Virtual Machine
+
+1. Search for "Virtual machines" in the portal
+2. Click **+ Create** → **Azure virtual machine**
+3. **Basics tab:**
+   - **Resource group:** Select `rg-az900-lab`
+   - **Virtual machine name:** `vm-az900-lab`
+   - **Region:** East US (match resource group)
+   - **Image:** Windows Server 2022 Datacenter
+   - **Size:** Standard_B2s (or a free tier option if available)
+   - **Username:** `azureuser`
+   - **Password:** Create a strong password (remember it!)
+4. Click **Next: Disks**
+5. Leave defaults, click **Next: Networking**
+6. **Networking tab:**
+   - **Virtual network:** Keep default or create new
+   - **Subnet:** Keep default
+   - **Public IP:** Create new (should be set to auto)
+   - **Allow public access:** Select RDP (3389)
+7. Click **Review + create**
+8. Review the settings and click **Create**
+9. Wait for deployment (5-10 minutes)
+
+### Step 3: Connect to the VM
+
+1. Once deployed, go to the VM resource
+2. Click **Connect** → **RDP**
+3. Click **Download RDP file**
+4. Open the RDP file
+5. Enter your username (`azureuser`) and password
+6. Accept the certificate warning
+7. You should now be connected to the VM desktop
+
+### Step 4: Verify VM Setup
+
+1. Open a command prompt on the VM
+2. Run `ipconfig` to see the network configuration
+3. Notice the private IP address assigned to your VM
+4. Take a screenshot for verification
+
+### Step 5: Clean Up
+
+1. Return to the Azure Portal
+2. Go to the resource group `rg-az900-lab`
+3. Click **Delete resource group**
+4. Type the resource group name to confirm
+5. Click **Delete**
+
+### Key Takeaways
+
+- ✅ You created an Azure resource group (logical container)
+- ✅ You deployed a Windows VM with specific configuration
+- ✅ You connected to the VM using RDP
+- ✅ You learned how to clean up resources
